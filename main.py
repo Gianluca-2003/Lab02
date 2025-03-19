@@ -1,25 +1,26 @@
 import translator as tr
+from dictionary import Dictionary
 
-t = tr.Translator()
 
-
-while(True):
-
+def main():
+    t = tr.Translator()
+    t.loadDictionary("dictionary.txt")
     t.printMenu()
+    #4t.stampa_dizionario()
+    while True:
+        txtIn = int(input("Inseriesci un numero: "))
+        if txtIn == 1:
+            entry = input("Inserisci le parole: ")
+            t.handleAdd(entry)
+        if txtIn == 2:
+            query = input("Ok, quale parola devo cercare? ")
+            t.handleTranslate(query)
+        if txtIn == 3:
+            query = input("Ok, quale parola devo cercare? ")
+            t.handleWildCard(query)
+        if txtIn == 4:
+            break
 
-    t.loadDictionary("filename.txt")
+main()
 
-    txtIn = input()
 
-    # Add input control here!
-
-    if int(txtIn) == 1:
-        print()
-        txtIn = input()
-        pass
-    if int(txtIn) == 2:
-        pass
-    if int(txtIn) == 3:
-        pass
-    if int(txtIn) == 4:
-        break
